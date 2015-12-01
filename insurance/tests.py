@@ -1,10 +1,10 @@
 from django.test import TestCase
-from insurance.models import Branch
+from insurance.models import Branch, Underwriter
 
 class BranchModelTest(TestCase):
 	def test_creating_new_branch(self):
 		branch = Branch ()
-		branch.name = "Cebuana"
+		branch.branch_name = "Cebuana"
 
 		branch.save()
 
@@ -14,4 +14,13 @@ class BranchModelTest(TestCase):
 		self.assertEquals(only_branch_in_database, branch)
 
 		self.assertEquals(only_branch_in_database.name, "Cebuana")
+
+	def test_creating_new_underwriter(self):
+		uderwriter = Underwriter ()
+		underwriter.underwriter_name = "Sun Life of Canada"
+
+		underwriter.save()
+
+	def test_creating_new_product(self):
+		pass
 
